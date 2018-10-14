@@ -110,9 +110,18 @@ function fn_datadisplay(){
               var tdminsTillTrain = $("<td>");
               tdminsTillTrain.text(tMinutesTillTrain);
 
+              var tdDel = $("<button>");
+              //tdDel.text("X");
+              tdDel.html("<i class='fa fa-trash' aria-hidden='true'></i> Delete")
+              tdDel.addClass("to_del");
+              //setting train name to button attr value which is coming from snapshot val (from database)
+              tdDel.attr("tr_nm",childSnapshot.val().train_name);
+
+              ////
+
              
               // Append the table row data to the table row 
-              tr.append(tdtrName, tdDestination, tdfrequency, tdNxtArrival, tdminsTillTrain);
+              tr.append(tdtrName, tdDestination, tdfrequency, tdNxtArrival, tdminsTillTrain, tdDel);
               // Append the table row to the tbody element
               tb.append(tr);
               // Handle the errors
